@@ -12,14 +12,12 @@ export class FizzBuzz extends LitElement {
 
   static get properties() {
     return {
-      title: { type: String },
       counter: { type: Number },
     };
   }
 
   constructor() {
     super();
-    this.title = 'Hey there';
     this.counter = 1;
   }
 
@@ -29,7 +27,7 @@ export class FizzBuzz extends LitElement {
 
   render() {
     return html`
-      <h2>${this.title} Nr. ${this.counter}!</h2>
+      <h2>Fizz Buzz exercise Nr. ${this.counter}!</h2>
       <button @click=${this.__increment}>increment</button>
     `;
   }
