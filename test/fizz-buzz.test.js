@@ -1,42 +1,39 @@
-import { html, fixture, expect } from '@open-wc/testing';
+import {html, fixture, expect} from '@open-wc/testing';
 
 import '../fizz-buzz.js';
 
 describe('FizzBuzz', () => {
-  it('has a default title "Hey there" and counter 5', async () => {
-    const el = await fixture(html`
-      <fizz-buzz></fizz-buzz>
-    `);
-
-    expect(el.title).to.equal('Hey there');
-    expect(el.counter).to.equal(5);
-  });
-
-  it('shows initially the text "hey there Nr. 5!" and an "increment" button', async () => {
-    const el = await fixture(html`
-      <fizz-buzz></fizz-buzz>
-    `);
-
-    expect(el).shadowDom.to.equal(`
-      <h2>Hey there Nr. 5!</h2>
+  function testIncrement(el, expectedCount, expectedOutput) {
+    el.shadowRoot.querySelector('button').click();
+    setTimeout(() => {
+      expect(el.counter).to.equal(expectedCount);
+      expect(el).shadowDom.to.equal(`
+      <h2>Fizz Buzz exercise Nr. ${expectedOutput}!</h2>
       <button>increment</button>
     `);
-  });
+    }, 1000);
 
-  it('increases the counter on button click', async () => {
+  }
+
+  it('Basic fizz buzz works', async () => {
     const el = await fixture(html`
       <fizz-buzz></fizz-buzz>
     `);
-    el.shadowRoot.querySelector('button').click();
-
-    expect(el.counter).to.equal(6);
+    testIncrement(el, 2, "2");
+    testIncrement(el, 3, "Fizz");
+    testIncrement(el, 4, "4");
+    testIncrement(el, 5, "Buzz");
   });
 
-  it('can override the title via attribute', async () => {
+  it('Extra credit fizz buzz works', async () => {
+    const fizz = 2;
+    const buzz = 3;
     const el = await fixture(html`
-      <fizz-buzz title="attribute title"></fizz-buzz>
+      <fizz-buzz fizz="${fizz}" buzz="${buzz}"></fizz-buzz>
     `);
-
-    expect(el.title).to.equal('attribute title');
+    testIncrement(el, 2, "Fizz");
+    testIncrement(el, 3, "Buzz");
+    testIncrement(el, 4, "Fizz");
+    testIncrement(el, 5, "5");
   });
 });
