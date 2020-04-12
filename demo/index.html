@@ -12,7 +12,7 @@
   <div id="demo"></div>
   <pre>
     /**
-    * Fizz Buzz is a simple coding exercise used for interviewing potential Dennis Kirk software developers
+    * Fizz Buzz is a simple programming exercise.
     *
     * The instructions for the fizz buzz exercise are:
     * Write a web component that increments a counter when a button is clicked and displays that number
@@ -20,18 +20,9 @@
     * For multiples of five display "Buzz"
     * For multiple of both three and five display "FizzBuzz"
     *
-    * For extra credit write the exercise by using dynamic values for the multiples of Fizz, Buzz and FizzBuzz
+    * For extra credit write the exercise by using dynamic values for the multiples of Fizz and Buzz.
     */</pre>
-  <script type="module">
-    import { html, render } from 'lit-html';
-    import '../fizz-buzz.js';
-
-    render(
-      html`
-        <fizz-buzz></fizz-buzz>
-      `,
-      document.querySelector('#demo')
-    );
-  </script>
+  <fizz-buzz></fizz-buzz>
+  <script type="module" src="../fizz-buzz.js"></script>
 </body>
 </html>
