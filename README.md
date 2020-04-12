@@ -11,14 +11,14 @@ Fizz Buzz is a simple programming exercise.
 
 ## Basic Usage
 ```html
-<script type="module" src="fizz-buzz/fizz-buzz.js"></script>
 <fizz-buzz></fizz-buzz>
+<script type="module" src="fizz-buzz/fizz-buzz.js"></script>
 ```
 
 ## Extra credit Usage
 ```html
-<script type="module" src="fizz-buzz/fizz-buzz.js"></script>
 <fizz-buzz fizz="2" buzz="3"></fizz-buzz>
+<script type="module" src="fizz-buzz/fizz-buzz.js"></script>
 ```
 
 # Steps to complete the exercise:
